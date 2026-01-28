@@ -44,7 +44,7 @@ export const orderService = {
   getAll: () => api.get('/orders/').then(res => res.data),
   getById: (id) => api.get(`/orders/${id}/`).then(res => res.data),
   create: (data) => api.post('/orders/', data).then(res => res.data),
-  update: (id, data) => api.put(`/orders/${id}/`, data).then(res => res.data),
+  update: (id, data) => api.patch(`/orders/${id}/`, data).then(res => res.data),
   delete: (id) => api.delete(`/orders/${id}/`).then(res => res.data),
 };
 

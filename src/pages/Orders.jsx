@@ -231,7 +231,7 @@ const EditOrderModal = ({ isOpen, onClose, order, onOrderUpdated }) => {
                     <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700/50 space-y-2">
                         <p className="text-white"><span className="text-slate-400 w-24 inline-block">Date:</span> {new Date(order.created_at).toLocaleString()}</p>
                         <p className="text-white"><span className="text-slate-400 w-24 inline-block">Items:</span> {order.items ? order.items.length : 0}</p>
-                        <p className="text-white"><span className="text-slate-400 w-24 inline-block">Total:</span> ${order.total_amount || 'N/A'}</p>
+                        <p className="text-white"><span className="text-slate-400 w-24 inline-block">Total:</span> ${order.items ? order.items.reduce((sum, item) => sum + (parseFloat(item.product_price) * item.quantity), 0).toFixed(2) : '0.00'}</p>
                     </div>
                 </div>
 
